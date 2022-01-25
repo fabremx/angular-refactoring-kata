@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ProductsService } from 'src/business/products/products.service';
 import { BackendProductsData, Product } from 'src/models/product';
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  selector: 'app-product-table',
+  templateUrl: './product-table.component.html',
+  styleUrls: ['./product-table.component.scss']
 })
-export class ProductsComponent implements OnInit {
+export class ProductTableComponent implements OnInit {
   products: Product[] = [];
+
   constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
@@ -18,7 +19,7 @@ export class ProductsComponent implements OnInit {
   fetchProducts() {
     this.productsService.fetchProducts().subscribe((data: BackendProductsData) => {
       this.products = data.products
-      console.log('loaded', this.products)
+      console.log('************', this.products)
     })
   }
 }

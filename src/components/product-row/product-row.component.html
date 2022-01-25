@@ -1,0 +1,23 @@
+<tr>
+    <ng-container [ngTemplateOutlet]="getTemplate(product)" [ngTemplateOutletContext]="{$implicit:product}">
+    </ng-container>
+
+    <td class="product__quantity-cell">
+        <input type="number" size={4} defaultValue={{product?.quantity}} min="0" step="1" disabled />
+    </td>
+
+    <td class="product__total-cell">$ {{calculProductTotalPrice(product)}}</td>
+
+    <td class="product__remove-cell">
+    </td>
+</tr>
+
+<ng-template #commonProductTemplate>
+    <app-common-product [product]="product"></app-common-product>
+</ng-template>
+<ng-template #newProductTemplate>
+    <app-new-product [product]="product"></app-new-product>
+</ng-template>
+<ng-template #endedProductTemplate>
+    <app-ended-product [product]="product"></app-ended-product>
+</ng-template>
