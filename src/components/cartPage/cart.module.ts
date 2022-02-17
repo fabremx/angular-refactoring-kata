@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser';
-import { CartComponent } from './cart.component';
-import { ProductsService } from 'src/business/products/products.service';
+import { CartPageComponent } from './cartPage.component';
 import { ProductsComponent } from 'src/components/products/products.component';
+import { SummaryComponent } from '../summary/summary.component';
 
 @NgModule({
-  declarations: [CartComponent, ProductsComponent],
+  declarations: [CartPageComponent, ProductsComponent, SummaryComponent],
   imports: [
     BrowserModule,
     HttpClientModule
   ],
-  providers: [ProductsService],
-  bootstrap: [CartComponent]
+  bootstrap: [CartPageComponent]
 })
 export class CartModule { }

@@ -1,24 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductsService } from 'src/business/products/products.service';
-import { BackendProductsData, Product } from 'src/models/product';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Product } from 'src/models';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  styleUrls: ['../../assets/styles/styles.scss']
 })
 export class ProductsComponent implements OnInit {
-  products: Product[] = [];
-  constructor(private productsService: ProductsService) { }
+  @Input() products: Product[] = [];
+  @Output() removeProductEmitter = new EventEmitter<number>();
 
-  ngOnInit(): void {
-    this.fetchProducts();
-  }
+  constructor() { }
 
-  fetchProducts() {
-    this.productsService.fetchProducts().subscribe((data: BackendProductsData) => {
-      this.products = data.products
-      console.log('loaded', this.products)
-    })
+  ngOnInit(): void { }
+
+  removeProduct(productId: number) {
+    this.removeProductEmitter.emit(productId);
   }
 }

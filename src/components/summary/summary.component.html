@@ -1,0 +1,31 @@
+<div class="summary">
+    <h3>Order summary</h3>
+
+    <div class="summary__element">
+        <h4>Total Price</h4>
+        <div class="summary__value" data-testid="totalPrice">
+            $ {{ totalPrice.toFixed(2) }}
+        </div>
+    </div>
+
+    <div class="summary__element">
+        <h4>Total Fees</h4>
+        <div class="summary__value" data-testid="totalFees">
+            <ng-container *ngIf="shouldPayFees; else freeBlock">
+                $ 3.99
+            </ng-container>
+            <ng-template #freeBlock>
+                Free
+            </ng-template>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="summary__element">
+        <h5>Amount To Pay</h5>
+        <div class="summary__value summary__value--large" data-testid="amountToPay">
+            $ {{ totalAmountToPay.toFixed(2) }}
+        </div>
+    </div>
+</div>

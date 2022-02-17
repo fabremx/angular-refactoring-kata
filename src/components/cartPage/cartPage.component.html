@@ -1,0 +1,10 @@
+<ng-container *ngIf="products.length; else noProducts">
+    <app-products [products]="products" (removeProductEmitter)="removeProduct($event)"></app-products>
+
+    <app-summary [shouldPayFees]="shouldPayFees" [totalPrice]="totalPrice" [totalAmountToPay]="totalAmountToPay">
+    </app-summary>
+</ng-container>
+
+<ng-template #noProducts>
+    No Products...
+</ng-template>
