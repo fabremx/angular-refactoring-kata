@@ -1,27 +1,98 @@
-# AngularKataRefacto
+# React Refactoring Kata
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
+## 🚩 Context
 
-## Development server
+I want to refactor and clean the code of the company website cart page.
+![Cart Page](public/images/cartPage.JPG)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## ⚙️ Business Rules Implemented
 
-## Code scaffolding
+The cart page is composed of a products list and a summary.
+Heres the list of the business logics implemented:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 🛒 Cart Page
 
-## Build
+```
+- If there are no products then display "No Products..."
+- If there are products then display products table and price summary
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 🧾 Products table
 
-## Running unit tests
+The products table display the cart products list of the user.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**User Actions**
 
-## Running end-to-end tests
+```
+- User can delete product of the products list
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+When a user delete a product it delete all quantities of the concerned product
 
-## Further help
+**Product Row**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+There are 3 different type of products.
+
+Each row contains :
+
+- A picture
+- The product name
+- The quantity
+- The total price
+- A button to delete the product
+
+```
+An common product is displayed without specific rules
+```
+
+![Common Product](public/images/commonProduct.JPG)
+
+```
+An new product is displayed with a label 'New product' instead of the picture and next to the product title
+```
+
+![New Product](public/images/newProduct.JPG)
+
+```
+An ended product is displayed with a label 'End soon' next to the picture and the product title
+```
+
+![Ended Product](public/images/endedProduct.JPG)
+
+### 💲 Summary
+
+The summary display
+
+1. Total price of the cart
+2. Delivery fees
+3. Total amount to pay.
+
+**Total price**
+
+```
+Calculate all the cart's products price multiplicated by their quantities
+```
+
+**Delivery fees**
+
+```
+- If user should pay fees then add delivery fees ($3.99) to total price
+- If user should not pay fees then add nothing to the total price
+```
+
+**Total amount to pay**
+
+```
+Amount to pay = total price + delivery fees
+```
+
+## ✔️ Acceptance Criteria
+
+- Clean the code
+- do NOT break any business rules.
+
+## 👍 Useful commands
+
+> `ng serve`: Launch the page
+>
+> `ng test`: Launch the tests

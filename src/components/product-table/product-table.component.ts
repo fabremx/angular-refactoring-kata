@@ -19,7 +19,6 @@ export class ProductTableComponent implements OnInit {
   fetchProducts() {
     this.productsService.fetchProducts().subscribe((data: BackendProductsData) => {
       this.products = data.products
-      console.log('************', this.products)
     })
   }
 }
