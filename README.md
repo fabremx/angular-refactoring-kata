@@ -93,6 +93,6 @@ Amount to pay = total price + delivery fees
 
 ## 👍 Useful commands
 
-> `ng serve`: Launch the page
+> `yarn start`: Launch the page
 >
-> `ng test`: Launch the tests
+> `yarn test`: Launch the tests
